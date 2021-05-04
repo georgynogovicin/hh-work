@@ -1,0 +1,131 @@
+@import '../../variables.scss';
+
+.container {
+    max-width: 1220px;
+    padding: 0 20px;
+    margin: auto;
+}
+
+.header {
+    background-color: #FFFFFF;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.03);
+
+    &__inner {
+        height: 74px;
+        
+        display: flex;
+        align-items: center;
+    }
+}
+
+.header-btn {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    color: inherit;
+    background: none;
+
+    &__active {
+        color: $primary-color;
+    }
+}
+
+.nav {
+    width: 100%;
+    display: flex;
+
+    &__list {
+        display: flex;
+        align-items: center;
+
+        @media screen and (max-width: 660px) {
+            display: none;
+        }
+    }
+
+    &__list-items {
+        margin-right: 130px;
+
+        @media (max-width: 1440px) and (min-width: 834px) {
+            margin-right: calc(84px + 7 * ((100vw - 834px) / 606));
+        }
+
+    }
+}
+
+.burger {
+    display: none;
+
+    @media screen and (max-width: 660px) {
+        display: block;
+        position: absolute;
+
+        top: 30px;
+        right: 38px;
+        z-index: 5;
+
+        width: 21px;
+        height: 19px;
+
+        cursor: pointer;
+
+        & span {
+            position: absolute;
+            top: calc(50% - 1px);
+            left: 0px;
+            
+            width: 100%;
+            height: 2px;
+            
+            background-color: $divider-color;
+
+            -webkit-transition: all 0.3s ease 0s;
+            transition: all 0.3s ease 0s;
+
+            &:first-child {
+                top: 0;
+            }
+
+            &:last-child {
+                bottom: 0;
+                top: auto;
+            }
+        }
+
+        &__active {
+            & span {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+
+                &:first-child {
+                    -webkit-transform: rotate(-45deg);
+                    transform: rotate(-45deg);
+                    top: calc(50% - 1px);
+                }
+
+                &:last-child {
+                    -webkit-transform: rotate(45deg);
+                    transform: rotate(45deg);
+                    bottom: calc(50% - 1px);
+                }
+            }
+        }
+
+    }
+}
+
+.logo {
+    margin-right: 140px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 20px;
+
+    & span {
+        color: #0070FB;
+    }
+
+    @media (max-width: 1440px) and (min-width: 834px) {
+        margin-right: calc(70px + 60 * ((100vw - 834px) / 606));
+    }
+}
